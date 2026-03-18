@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joey & Zachary — May 23, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F8FAFC;
+      --navy: #1a2a3a;
+      --blue: #4A7FA5;
+      --blue-light: #7AAFC8;
+      --blue-pale: #E8F2F8;
+      --white: #FFFFFF;
+      --gold: #C9A96E;
+      --text-muted: #5a7080;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ──────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+      border-bottom: 1px solid rgba(74, 127, 165, 0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--navy);
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-light);
+    }
+
+    nav.scrolled .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* ─── HERO ─────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1800&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.55);
+      transform: scale(1.05);
+      animation: slowZoom 20s ease-out forwards;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.0); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26, 42, 58, 0.2) 0%,
+        rgba(26, 42, 58, 0.05) 40%,
+        rgba(26, 42, 58, 0.5) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-names .ampersand {
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75em;
+    }
+
+    .hero-date {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-location {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 3rem;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(255,255,255,0.4);
+      margin: 0 auto 3rem;
+    }
+
+    /* ─── COUNTDOWN ────────────────────────────── */
+    .countdown {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+    }
+
+    .countdown-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    .hero-scroll svg { opacity: 0.5; }
+
+    /* ─── SECTION SHARED ───────────────────────── */
+    section {
+      padding: 7rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--blue-light));
+      max-width: 80px;
+    }
+
+    .ornament-line.right {
+      background: linear-gradient(to left, transparent, var(--blue-light));
+    }
+
+    .ornament-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ─── STORY ────────────────────────────────── */
+    #story {
+      background: var(--white);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+
+    .story-text .pull-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--navy);
+      border-left: 2px solid var(--blue);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.4;
+    }
+
+    .story-image-wrap {
+      position: relative;
+    }
+
+    .story-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      border: 1px solid var(--blue-pale);
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .story-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .story-image-placeholder {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--blue-pale) 0%, #d0e8f4 100%);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--blue);
+    }
+
+    .story-image-placeholder svg {
+      opacity: 0.4;
+    }
+
+    .story-image-placeholder span {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* ─── DETAILS STRIP ────────────────────────── */
+    .details-strip {
+      background: var(--navy);
+      padding: 4rem 2rem;
+    }
+
+    .details-strip-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .detail-item {
+      padding: 1rem;
+    }
+
+    .detail-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 1rem;
+      opacity: 0.6;
+      color: var(--blue-light);
+    }
+
+    .detail-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* ─── SCHEDULE ─────────────────────────────── */
+    #schedule {
+      background: var(--cream);
+    }
+
+    .schedule-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--blue-light) 10%, var(--blue-light) 90%, transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-event {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-event:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-event.left .event-content { grid-column: 1; text-align: right; }
+    .timeline-event.left .event-dot     { grid-column: 2; }
+    .timeline-event.left .event-empty   { grid-column: 3; }
+
+    .timeline-event.right .event-empty   { grid-column: 1; }
+    .timeline-event.right .event-dot     { grid-column: 2; }
+    .timeline-event.right .event-content { grid-column: 3; text-align: left; }
+
+    .event-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-time {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.35rem;
+    }
+
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+    }
+
+    .event-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* ─── POSITANO SECTION ─────────────────────── */
+    #positano {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .positano-intro {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .positano-intro p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .location-card {
+      background: var(--cream);
+      border: 1px solid var(--blue-pale);
+      border-radius: 4px;
+      padding: 2.5rem;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .location-card .card-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.25rem;
+      color: var(--blue);
+      opacity: 0.8;
+    }
+
+    .location-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .location-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* ─── PHOTO INTERLUDE ──────────────────────── */
+    .photo-interlude {
+      height: 70vh;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .photo-interlude-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+      transform: scale(1.02);
+      transition: transform 0.1s linear;
+    }
+
+    .photo-interlude-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+
+    .interlude-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.35;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+
+    .interlude-attr {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── FOOTER ───────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-names .amp {
+      font-style: italic;
+      color: var(--blue-light);
+      font-size: 0.8em;
+    }
+
+    .footer-date {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 3rem;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(74, 127, 165, 0.4);
+      margin: 0 auto 3rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── REVEAL ANIMATION ─────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ───────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      nav.scrolled { padding: 0.75rem 1.5rem; }
+
+      .nav-links { gap: 1.5rem; }
+      .nav-links a { font-size: 0.65rem; }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .story-image-wrap { order: -1; }
+
+      .details-strip-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .timeline::before { left: 1.5rem; }
+
+      .timeline-event {
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+      }
+
+      .timeline-event.left .event-content,
+      .timeline-event.right .event-content {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .timeline-event.left .event-dot,
+      .timeline-event.right .event-dot {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .timeline-event.left .event-empty,
+      .timeline-event.right .event-empty {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#" class="nav-logo">J & Z</a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#schedule">The Day</a></li>
+      <li><a href="#positano">Positano</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">We are getting married</p>
+      <h1 class="hero-names">
+        Joey <span class="ampersand">&amp;</span> Zachary
+      </h1>
+      <p class="hero-date">May 23, 2026</p>
+      <p class="hero-location">Positano, Italy</p>
+      <div class="hero-divider"></div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="cd-days">—</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="cd-hours">—</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="cd-mins">—</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="cd-secs">—</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3L8 13M8 13L3 8M8 13L13 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story">
+    <div class="section-inner">
+      <div class="story-grid">
+        <div class="story-text">
+          <span class="section-eyebrow reveal">Our Story</span>
+          <h2 class="section-title reveal reveal-delay-1">A <em>Volleyball</em><br>Love Story</h2>
+          <div class="ornament reveal reveal-delay-2">
+            <div class="ornament-line"></div>
+            <div class="ornament-diamond"></div>
+            <div class="ornament-line right"></div>
+          </div>
+          <p class="reveal reveal-delay-2">It started with a swipe — and ended up changing everything. What began as a match on an app turned into something neither of us saw coming.</p>
+          <div class="pull-quote reveal reveal-delay-3">"It started with a swipe — a Volleyball Love Story."</div>
+          <p class="reveal reveal-delay-3">Through shared passions, late nights, and an unshakeable connection, we found our person. And now, beneath the cliffs of Positano, we're ready to make it forever.</p>
+        </div>
+        <div class="story-image-wrap reveal reveal-delay-2">
+          <!-- Replace src with your actual photo path -->
+          <div class="story-image-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span>Add your photo here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS STRIP -->
+  <div class="details-strip">
+    <div class="details-strip-inner">
+      <div class="detail-item reveal">
+        <div class="detail-label">Date</div>
+        <div class="detail-value">May 23, 2026</div>
+      </div>
+      <div class="detail-item reveal reveal-delay-2">
+        <div class="detail-label">Venue</div>
+        <div class="detail-value">La Tagliata<br><small style="font-size:0.7em; opacity:0.7">Positano, Italy</small></div>
+      </div>
+      <div class="detail-item reveal reveal-delay-3">
+        <div class="detail-label">Dress Code</div>
+        <div class="detail-value">Cocktail Attire</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="section-inner">
+      <div class="schedule-header">
+        <span class="section-eyebrow reveal">May 23, 2026</span>
+        <h2 class="section-title reveal reveal-delay-1">The <em>Day</em></h2>
+        <div class="ornament reveal reveal-delay-2" style="justify-content:center">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line right"></div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-event left reveal">
+          <div class="event-content">
+            <div class="event-time">4:00 PM</div>
+            <div class="event-name">Ceremony</div>
+            <div class="event-desc">La Tagliata, Positano</div>
+          </div>
+          <div class="event-dot"></div>
+          <div class="event-empty"></div>
+        </div>
+
+        <div class="timeline-event right reveal reveal-delay-1">
+          <div class="event-empty"></div>
+          <div class="event-dot"></div>
+          <div class="event-content">
+            <div class="event-time">5:00 PM</div>
+            <div class="event-name">Cocktail Hour</div>
+            <div class="event-desc">Drinks &amp; canapes with views of the Amalfi Coast</div>
+          </div>
+        </div>
+
+        <div class="timeline-event left reveal reveal-delay-2">
+          <div class="event-content">
+            <div class="event-time">6:30 PM</div>
+            <div class="event-name">Dinner &amp; Reception</div>
+            <div class="event-desc">Celebration under the Italian sky</div>
+          </div>
+          <div class="event-dot"></div>
+          <div class="event-empty"></div>
+        </div>
+
+        <div class="timeline-event right reveal reveal-delay-3">
+          <div class="event-empty"></div>
+          <div class="event-dot"></div>
+          <div class="event-content">
+            <div class="event-time">Late Night</div>
+            <div class="event-name">Dancing &amp; Celebration</div>
+            <div class="event-desc">Because every love story deserves a great ending</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO INTERLUDE -->
+  <div class="photo-interlude">
+    <div class="photo-interlude-bg" id="parallax-bg"></div>
+    <div class="photo-interlude-content">
+      <p class="interlude-quote">"To love and be loved is to feel the sun from both sides."</p>
+      <p class="interlude-attr">— David Viscott</p>
+    </div>
+  </div>
+
+  <!-- POSITANO -->
+  <section id="positano">
+    <div class="section-inner">
+      <div class="positano-intro">
+        <span class="section-eyebrow reveal">Where We Say I Do</span>
+        <h2 class="section-title reveal reveal-delay-1">Positano, <em>Italy</em></h2>
+        <div class="ornament reveal reveal-delay-2" style="justify-content:center">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line right"></div>
+        </div>
+        <p class="reveal reveal-delay-2">Clinging to the cliffs of the Amalfi Coast, Positano is one of the most breathtaking places on earth — a cascade of pastel houses, lemon groves, and turquoise sea. We can't imagine a more perfect backdrop for the beginning of forever.</p>
+      </div>
+
+      <div class="location-card reveal reveal-delay-1">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <h3>La Tagliata</h3>
+        <p>Via Tagliata, Positano SA 84017, Italy</p>
+        <a href="https://maps.google.com/?q=La+Tagliata+Positano+Italy" target="_blank" rel="noopener" class="btn">View on Map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-names">Joey <span class="amp">&amp;</span> Zachary</div>
+    <div class="footer-date">May 23, 2026 &nbsp;·&nbsp; Positano, Italy</div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">Made with love &nbsp;♡</p>
+  </footer>
+
+  <script>
+    // ── Countdown ──────────────────────────────────
+    (function() {
+      const target = new Date('2026-05-23T16:00:00+02:00');
+      function update() {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+          document.getElementById('countdown').innerHTML =
+            '<p style="color:white;font-family:\'Cormorant Garamond\',serif;font-size:1.5rem;font-style:italic">Today is the day!</p>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+        document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+
+    // ── Nav scroll ────────────────────────────────
+    (function() {
+      const nav = document.getElementById('main-nav');
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+      }, { passive: true });
+    })();
+
+    // ── Reveal on scroll ──────────────────────────
+    (function() {
+      const els = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function(el) { obs.observe(el); });
+    })();
+
+    // ── Parallax interlude ────────────────────────
+    (function() {
+      const bg = document.getElementById('parallax-bg');
+      if (!bg) return;
+      window.addEventListener('scroll', function() {
+        const rect = bg.parentElement.getBoundingClientRect();
+        const offset = -rect.top * 0.25;
+        bg.style.transform = 'translateY(' + offset + 'px) scale(1.02)';
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
